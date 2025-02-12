@@ -1,4 +1,4 @@
-#This documentation for this project is being updated at the moment (Feb 12th).
+# This documentation for this project is being updated at the moment (Feb 12th).
 
 
 # Codes for paper *Fibration symmetry uncovers minimal regulatory networks for logical computation in bacteria*

@@ -15,10 +15,13 @@ The flow is the following:
 3. Use **circuits_luis.R**, **cycles.R** to find the circuits and the cycles in the network, correspondigly.
 4. The **randomized.R** script is for obtaining a randomized version of the original network that still preserves the degree distribution (i.e. a re-wiring) to know what would be the core structures for randomly generated networks and thus compare the likelihood of the actual observed structures in the real networks arising by chance
 
-## 1. _for_fibers.R
+## 1. Code_for_fibers.R
 
 This is a modification of an older version of the code that were made available on [this](https://github.com/makselab/fibrationSymmetries) repository. Most of the changes made were so that it would be easier to work with the rest of the code for the paper. (Its important to note that all the C++ scripts need to be on the same directory as **fiber.R**)
+
 The script **fiber.R** runs all of the scripts in C++ to obtain the coloring of the nodes, or fibers, of the network. This script calls the functions on the **functions.R** script, firstly for preparing the network files to be run on the C++ code and later to retrieve the obtained colors. After the colors are obtained the script calls **classifier.R** to classify the building blocks. 
+
+Run the script **fiber.R**, specify the location of the network file as well as the separating character. The network file must be a list of edges in the format: Source node (first col), Target node (second col) and Type of edge (optional). The output will be two data frames, one with the list of nodes in the network with a column for FiberId (the color or fiber of the node) as well as another data frame with the list of fiber building blocks and their classifications.
 
 ## 2. Clear_paper.R
 

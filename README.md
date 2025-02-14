@@ -1,6 +1,3 @@
-# This documentation for this project is being updated at the moment (Feb 13th).
-
-
 # Code for paper *The computational core of gene regulatory networks in bacteria*
 
 The following code is for reproducing the analysis and results of the paper [The computational core of gene regulatory networks in bacteria](https://arxiv.org/abs/2310.10895). The purpose of the analysis is to reveal the subnetwork of a message-passing network that controls the rest of the system. We applied this analysis to gene regulatory networks (GRNs) to reveal their computational core, as the name implies, specifically, we analyzed the GRNs of E. coli and B. subtilis. 

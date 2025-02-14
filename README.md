@@ -12,7 +12,7 @@ The code is written on R. You can download R here: https://cran.r-project.org/, 
 The flow is the following:
 1. Get fibers for the network using the script **fiber.R** from the directory **Code_for_fibers**
 2. Use **Clean_paper.R** to obtain the *Minimal Network* (the core of the original entire network).
-3. Use **circuits_luis.R**, **cycles.R** to find the circuits and the cycles in the network, correspondigly.
+3. Use **circuits.R**, **cycles.R** to find the circuits and the cycles in the network, correspondigly.
 4. The **randomized.R** script is for obtaining a randomized version of the original network that still preserves the degree distribution (i.e. a re-wiring) to know what would be the core structures for randomly generated networks and thus compare the likelihood of the actual observed structures in the real networks arising by chance
 
 ## 1. Code_for_fibers.R
@@ -27,7 +27,7 @@ Run the script **fiber.R**, specify the location of the network file as well as 
 
 This script requires both the network file (in an edge -> edge format) and a file with the list of nodes and their colors or fibers. The script first collapses the network to its base, i.e. collapses all the fibers to a single representative node per fiber. This reduced network still preserves the same information flow dynamics. The base of the network is further reduced by applying the kcore decomposition to obtain the k<sub>out</sub>=0 core of the network. 
 
-## 3. circuits_luis.R and cycles.R
+## 3. circuits.R and cycles.R
 
 Both of this scripts take the network file and returns a list of all the circuits/cycles found, it also classify the circuits according to the type of edges (different types of edges produce different logical circuits).
 

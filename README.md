@@ -14,7 +14,7 @@ The flow is the following:
 3. Use **circuits.R**, **cycles.R** to find the circuits and the cycles in the network, correspondigly.
 4. The **randomized.R** script is for obtaining a randomized version of the original network that still preserves the degree distribution (i.e. a re-wiring) to know what would be the core structures for randomly generated networks and thus compare the likelihood of the actual observed structures in the real networks arising by chance
 
-## 1. Code_for_fibers.R
+## 1. Code_for_fibers
 
 This is a modification of an older version of the code that were made available on [this](https://github.com/makselab/fibrationSymmetries) repository. Most of the changes made were so that it would be easier to work with the rest of the code for the paper. (Its important to note that all the C++ scripts need to be on the same directory as **fiber.R**)
 

@@ -1,10 +1,13 @@
 # This documentation for this project is being updated at the moment (Feb 13th).
 
 
-# Code for paper *Fibration symmetry uncovers minimal regulatory networks for logical computation in bacteria*
+# Code for paper *The computational core of gene regulatory networks in bacteria*
 
-The following code is for reproducing the analysis and results of the paper [The computational core of gene regulatory networks in
-bacteria](https://arxiv.org/abs/2310.10895)
+The following code is for reproducing the analysis and results of the paper [The computational core of gene regulatory networks in bacteria](https://arxiv.org/abs/2310.10895). The purpose of the analysis is to reveal the subnetwork of a message-passing network that controls the rest of the system. We applied this analysis to gene regulatory networks (GRNs) to reveal their computational core, as the name implies, specifically, we analyzed the GRNs of E. coli and B. subtilis. 
+
+The analysis consists of obtaining the fibers of the network, synchronized clusters, collapsing the fibers into a single representative node for each fiber (dynamics are preserved). After these the k-core decomposition is taken to determine the k-out = 1 core of the network. This corresponds to the minimal network, or computational core, that drives the rest of the system. The remaining corresponds to searching for logic circuits in the minimal network and for the simple directed cycles in the strongly connected components that connect the different logic circuits. Additionally, a statistical test is conducted to determine the likelihood that the structures observed are formed by pure chance alone.
+
+The code is written on R. You can download R here: https://cran.r-project.org/, click on the "base" link under "Subdirectories" and download the latest version of R for your system. We recommend working with R-studio, a user friendly IDE you can obtain here: https://posit.co/downloads/
 
 The flow is the following:
 1. Get fibers for the network using the script **fiber.R** from the directory **Code_for_fibers**

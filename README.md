@@ -7,7 +7,9 @@ The following code is for reproducing the analysis and results of the paper [The
 
 The analysis consists of obtaining the fibers of the network, synchronized clusters, collapsing the fibers into a single representative node for each fiber (dynamics are preserved). After these the k-core decomposition is taken to determine the k-out = 1 core of the network. This corresponds to the minimal network, or computational core, that drives the rest of the system. The remaining corresponds to searching for logic circuits in the minimal network and for the simple directed cycles in the strongly connected components that connect the different logic circuits. Additionally, a statistical test is conducted to determine the likelihood that the structures observed are formed by pure chance alone.
 
-The code is written on R. You can download R here: https://cran.r-project.org/, click on the "base" link under "Subdirectories" and download the latest version of R for your system. We recommend working with R-studio, a user friendly IDE you can obtain here: https://posit.co/downloads/
+The code is written on R. You can download R here: https://cran.r-project.org/, click on the "base" link under "Subdirectories" and download the latest version of R for your system. We recommend working with R-studio, a user friendly IDE you can obtain here: https://posit.co/downloads/.
+
+The raw and output data can be found on osf: https://osf.io/eh6ps/. The data was obtained from [RegulonDB](https://regulondb.ccg.unam.mx/) for E. coli and from [Subtiwiki](https://www.subtiwiki.uni-goettingen.de/v5/welcome) for B. subtilis. In the case of E. coli, initially operons are collapsed into single nodes representing Transcriptional Units, in order to avoid looking at "trivial" fibers, for B. subtilis' case there is another type of interaction, sigma factor, this is taken as equal to an activation type of interaction.
 
 The flow is the following:
 1. Get fibers for the network using the script **fiber.R** from the directory **Code_for_fibers**

@@ -1,6 +1,7 @@
-# Code for paper *The computational core of gene regulatory networks in bacteria*
+# Code for paper *Complexity reduction by symmetry: uncovering the minimal regulatory network for logical computation in bacteria*
 
-The following code is for reproducing the analysis and results of the paper [The computational core of gene regulatory networks in bacteria](https://arxiv.org/abs/2310.10895). The purpose of the analysis is to reveal the subnetwork of a message-passing network that controls the rest of the system. We applied this analysis to gene regulatory networks (GRNs) to reveal their computational core, as the name implies, specifically, we analyzed the GRNs of E. coli and B. subtilis. 
+The following code is for reproducing the analysis and results of the paper [Complexity reduction by symmetry: uncovering the minimal
+regulatory network for logical computation in bacteria](https://arxiv.org/abs/2310.10895). The purpose of the analysis is to reveal the subnetwork of a message-passing network that controls the rest of the system. We applied this analysis to gene regulatory networks (GRNs) to reveal their computational core, as the name implies, specifically, we analyzed the GRNs of E. coli and B. subtilis. 
 
 The analysis consists of obtaining the fibers of the network, synchronized clusters, collapsing the fibers into a single representative node for each fiber (dynamics are preserved). After these the k-core decomposition is taken to determine the k-out = 1 core of the network. This corresponds to the minimal network, or computational core, that drives the rest of the system. The remaining corresponds to searching for logic circuits in the minimal network and for the simple directed cycles in the strongly connected components that connect the different logic circuits. Additionally, a statistical test is conducted to determine the likelihood that the structures observed are formed by pure chance alone.
 

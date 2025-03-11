@@ -7,15 +7,18 @@ The analysis consists of obtaining the fibers of the network, synchronized clust
 
 The code is written on R. You can download R here: https://cran.r-project.org/, click on the "base" link under "Subdirectories" and download the latest version of R for your system. We recommend working with R-studio, a user friendly IDE you can obtain here: https://posit.co/downloads/.
 
-The raw and output data can be found on osf: https://osf.io/eh6ps/. The data was obtained from [RegulonDB](https://regulondb.ccg.unam.mx/) for E. coli and from [Subtiwiki](https://www.subtiwiki.uni-goettingen.de/v5/welcome) for B. subtilis. In the case of E. coli, initially operons are collapsed into single nodes representing Transcriptional Units, in order to avoid looking at "trivial" fibers, for B. subtilis' case there is another type of interaction, sigma factor, this is taken as equal to an activation type of interaction.
+## Data:
+The data was obtained from [RegulonDB](https://regulondb.ccg.unam.mx/) for E. coli and from [Subtiwiki](https://www.subtiwiki.uni-goettingen.de/v5/welcome) for B. subtilis. In the case of E. coli, initially operons are collapsed into single nodes representing Transcriptional Units, in order to avoid looking at "trivial" fibers, for B. subtilis' case there is another type of interaction, sigma factor, this is taken as equal to an activation type of interaction. The network is presented as a list of edges, where the rows represent different edges, and the columns represent *Source node*, *Target node* and *Type of regulation*. The output data corresponds to the list of (colored) nodes where the *FiberId* column stands for the Fibe to which the respective node belongs (alternatively, its color). The raw and output data can be found on osf: https://osf.io/eh6ps/. 
 
+
+## Code:
 The flow is the following:
 1. Get fibers for the network using the script **fiber.R** from the directory **Code_for_fibers**
 2. Use **Clean_paper.R** to obtain the *Minimal Network* (the core of the original entire network).
 3. Use **circuits.R**, **cycles.R** to find the circuits and the cycles in the network, correspondigly.
 4. The **randomized.R** script is for obtaining a randomized version of the original network that still preserves the degree distribution (i.e. a re-wiring) to know what would be the core structures for randomly generated networks and thus compare the likelihood of the actual observed structures in the real networks arising by chance
 
-## 1. Code_for_fibers
+### 1. Code_for_fibers
 
 This is a modification of an older version of the code that were made available on [this](https://github.com/makselab/fibrationSymmetries) repository. Most of the changes made were so that it would be easier to work with the rest of the code for the paper. (Its important to note that all the C++ scripts need to be on the same directory as **fiber.R**)
 
@@ -23,14 +26,14 @@ The script **fiber.R** runs all of the scripts in C++ to obtain the coloring of 
 
 Run the script **fiber.R**, specify the location of the network file as well as the separating character. The network file must be a list of edges in the format: Source node (first col), Target node (second col) and Type of edge (optional). The output will be two data frames, one with the list of nodes in the network with a column for FiberId (the color or fiber of the node) as well as another data frame with the list of fiber building blocks and their classifications.
 
-## 2. Clear_paper.R
+### 2. Clear_paper.R
 
 This script requires both the network file (in an edge -> edge format) and a file with the list of nodes and their colors or fibers. The script first collapses the network to its base, i.e. collapses all the fibers to a single representative node per fiber. This reduced network still preserves the same information flow dynamics. The base of the network is further reduced by applying the kcore decomposition to obtain the k<sub>out</sub>=0 core of the network. 
 
-## 3. circuits.R and cycles.R
+### 3. circuits.R and cycles.R
 
 Both of this scripts take the network file and returns a list of all the circuits/cycles found, it also classify the circuits according to the type of edges (different types of edges produce different logical circuits).
 
-## 4. randomized.R 
+### 4. randomized.R 
 
 Again, takes the network files, outputs an ensemble of random networks (a rewiring of the original network, i.e. the null model) that still preserve the degree distribution and then analyzes the structure at the core of these randomized networks to give a z-score as a notion of how close to the expected structure for a random network the observed structure is. 
